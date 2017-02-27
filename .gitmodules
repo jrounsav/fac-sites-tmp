@@ -1,0 +1,3 @@
+[submodule "profiles/openscholar"]
+	path = profiles/openscholar
+	url = https://github.com/ASU/openscholar
