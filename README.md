@@ -38,7 +38,8 @@ These commands should pull down the repository and set all of the submodules to 
 If the build process that generates  the faculty websites repo is down, the following steps can be taken to strip the submodules out of the codebase and leave the necessary files in the "master" branch.
 
 ToDo: Put this into a build script.
-```Updating the "master" with the "complete" files
+```
+Updating the "master" with the "complete" files
 STARTING FROM PARENT DIR OF Faculty Websites 
        mkdir holder
 	   ./faculty-websites/openscholar/scripts/build
@@ -64,5 +65,6 @@ SHOULD BE AT PARENT OF Faculty Websites
        git add .
        git commit -m "Some relevant commit message"
        git status
-       git push origin master```
+       git push origin master
+```
 
