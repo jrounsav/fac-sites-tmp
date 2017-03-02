@@ -1,1 +1,65 @@
 .idea/
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @jrounsav
+ Sign out
+ Watch 70
+  Star 78
+ Fork 194 pantheon-systems/drops-7
+ Code  Issues 11  Pull requests 6  Projects 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathdrops-7/.gitignore
+35deea8  on Aug 12, 2014
+@jamesrward jamesrward Changed Icon? to Icon/r/r in gitignore
+3 contributors @Hornswoggles @jamesrward @davidstrauss
+RawBlameHistory     
+45 lines (37 sloc)  545 Bytes
+# Ignore paths that contain user-generated content.
+/sites/*/files
+/sites/*/private
+/files/*
+/cache
+
+# ** Only works in OSs that support newer versions of fnmatch (Bash 4+)
+/sites/default/**/files
+/sites/default/**/private
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon
+
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# SASS #
+##########
+.sass-cache
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
