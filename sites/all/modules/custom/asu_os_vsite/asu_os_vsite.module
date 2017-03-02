@@ -498,6 +498,20 @@ function asu_os_vsite_mail($key, &$message, $params) {
  */
 function asu_os_vsite_form_vsite_register_form_alter(&$form, &$form_state, $form_id) {
 
+  // User agreement
+  $sla_location = variable_get('asu_os_vsite_sla_location', 'https://web.asu.edu/sla');
+  $accept_title = t('I understand that this is an early preview ');
+  $accept_title .= l(t('beta'), $sla_location, array('attributes' => array('target'=>'_blank')));
+  $accept_title .= t(' of the service and that it is not intended for production use at this time.');
+  $form['accept_risk'] = array(
+    '#type' => 'checkbox',
+    '#title' => $accept_title,
+    '#required' => TRUE,
+    '#weight' => 99,
+  );
+
+
+  // Custom domain.
   $form['domain']['#weight'] = -2;
   $form['use_custom_domain'] = array(
     '#type' => 'checkbox',
@@ -515,18 +529,10 @@ function asu_os_vsite_form_vsite_register_form_alter(&$form, &$form_state, $form
   // Put the submit first so we can line up values pre-creation.
   array_unshift($form['#submit'], 'asu_os_vsite_vsite_register_form_submit');
 
-
-
-//dpm('alter');
-//dpm($form);
-
   // TODO Adding of additional editor users... need to check they are faculty?
-
 
   $form['user_fieldset']['existing_username']['#title'] = t("Add ASU User to this website");
   $form['user_fieldset']['existing_username']['#autocomplete_path'] = 'autocomplete/asu/user';
-// TODO implement in submit validate
-//  $form['user_fieldset']['existing_username']['#element_validate'] = 'asu_userpicker_solr_autocomplete_validate';
   $form['user_fieldset']['existing_username']['#description'] = t("Type in a person's name, username, or e-mail address to search for their existing account or to automatically create their account if they have an ASURITE.");
   $form['user_fieldset']['name']['#access'] = FALSE;
   $form['user_fieldset']['first_name']['#access'] = FALSE;
@@ -540,18 +546,6 @@ function asu_os_vsite_form_vsite_register_form_alter(&$form, &$form_state, $form
 
   // And remove the original submit handler. We'll do the work of that one, too.
   unset($form['#submit'][1]);
-
-
-//  dpm($form);
-
-  // TODO alter add existing user field to use userpicker
-  // TODO hide linkages to add new user.
-
-  // TODO add custom validate function that does userpicker + special og user stuff?
-
-
-
-
 
 }
 
