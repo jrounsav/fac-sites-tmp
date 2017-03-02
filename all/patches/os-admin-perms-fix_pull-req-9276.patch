@@ -1,0 +1,46 @@
+commit 0d1cb0c6faf56ef2542696ef838d87db7dba82f2
+Author: mlsamuelson <mlsamuel@asu.edu>
+Date:   Wed Feb 8 11:24:02 2017 -0700
+
+    Permission string 'administer content' doesn't exist, though admin UI calls it that. In backend it's actually 'administer nodes' so use that value in menu access checks.
+
+diff --git a/openscholar/modules/os/modules/os_front/os_front.module b/openscholar/modules/os/modules/os_front/os_front.module
+index a2d00ab..8cc4c6c 100644
+--- a/openscholar/modules/os/modules/os_front/os_front.module
++++ b/openscholar/modules/os/modules/os_front/os_front.module
+@@ -89,11 +89,11 @@ function os_front_block_view($delta) {
+             '#suffix' => '</span>',
+             'text-anon' => array(
+               '#markup' => variable_get('os_front_site_title', 'Change Me'),
+-              '#access' => !user_access('administer content'),
++              '#access' => !user_access('administer nodes'),
+             ),
+             'text-auth' => array(
+               '#markup' => l(variable_get('os_front_site_title', 'Change Me'), 'admin/config/openscholar/site-title'),
+-              '#access' => user_access('administer content'),
++              '#access' => user_access('administer nodes'),
+             )
+           )
+         ),
+diff --git a/openscholar/modules/os/os.module b/openscholar/modules/os/os.module
+index afdd250..3bb435b 100755
+--- a/openscholar/modules/os/os.module
++++ b/openscholar/modules/os/os.module
+@@ -51,7 +51,7 @@ function os_menu() {
+     'weight' => -5,
+     'page callback' => 'drupal_get_form',
+     'page arguments' => array('os_settings_form'),
+-    'access arguments' => array('administer content'),
++    'access arguments' => array('administer nodes'),
+   );
+ 
+   $items['admin/config/openscholar/frontend'] = array(
+@@ -59,7 +59,7 @@ function os_menu() {
+     'description' => 'Edit settings that affect general front end performance',
+     'page callback' => 'drupal_get_form',
+     'page arguments' => array('os_settings_frontend_form'),
+-    'access arguments' => array('administer content'),
++    'access arguments' => array('administer nodes'),
+   );
+ 
+   $items['page_not_found'] = array(
