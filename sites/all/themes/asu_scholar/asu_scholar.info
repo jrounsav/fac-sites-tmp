@@ -3,8 +3,8 @@
 name        = ASU Scholar
 description = The base of ASU theming on top of an Openscholar base theme.
 core        = 7.x
-base theme  = os_basetheme
-release     = 7.x-1.0
+base theme  = hwpi_basetheme
+release     = 7.x-3.x
 engine      = phptemplate
 screenshot  = screenshot.png
 ;  flavor_name = ""
