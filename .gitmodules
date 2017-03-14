@@ -1,0 +1,3 @@
+[submodule "openscholar"]
+	path = openscholar
+	url = git@github.com:jrounsav/os-tmp.git
