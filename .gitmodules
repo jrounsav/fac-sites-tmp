@@ -1,6 +1,0 @@
-[submodule "profiles/openscholar"]
-	path = openscholar
-	url = https://github.com/ASU/openscholar
-[submodule "asu-openscholar-custom"]
-	path = sites
-	url = https://github.com/ASU/asu-openscholar-custom
