@@ -1,3 +1,6 @@
 [submodule "openscholar"]
 	path = openscholar
 	url = git@github.com:jrounsav/os-tmp.git
+[submodule "sites"]
+	path = sites
+	url = https://github.com/jrounsav/custom-tmp
