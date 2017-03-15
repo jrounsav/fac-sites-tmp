@@ -4,3 +4,6 @@
 [submodule "sites"]
 	path = sites
 	url = https://github.com/jrounsav/custom-tmp
+[submodule "drup-mod-tmp"]
+	path = asu-drupal-modules
+	url = https://github.com/jrounsav/drup-mod-tmp.git
